@@ -1,17 +1,18 @@
 
 all : hello
-
+CC = g++
+CFLAGS = -c -Wall
 hello : main.o functions1.o functions2.o
-	g++ main.o functions1.o functions2.o -o hello
+	$(CC) main.o functions1.o functions2.o -o hello
 
 main.o : main.cpp
-	g++ -c main.cpp
+	$(CC) $(CFLAGS) main.cpp
 
 functions1.o : functions1.cpp
-	g++ -c functions1.cpp
+	$(CC) $(CFLAGS) functions1.cpp
 
 functions2.o : functions2.cpp
-	g++ -c functions2.cpp
+	$(CC) $(CFLAGS) functions2.cpp
 
 clean : 
 	@rm -rf *.o
